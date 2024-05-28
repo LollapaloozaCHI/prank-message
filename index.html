@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Prices</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .header {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+        .table-container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 80%;
+        }
+        h1 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+        }
+        .pay-now {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function calculateTotal() {
+            const quantity = document.getElementById("quantity").value;
+            const price = 387.50;
+            const tax = 32.30;
+            const subtotal = price * quantity;
+            const total = subtotal + tax;
+
+            document.getElementById("subtotal").innerText = "$" + subtotal.toFixed(2);
+            document.getElementById("tax").innerText = "$" + tax.toFixed(2);
+            document.getElementById("total").innerText = "$" + total.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <img src="header.png" alt="Lollapalooza Header">
+    </div>
+    <div class="table-container">
+        <h1>Ticket Prices</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Ticket</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Collectible Cred & 4-Day GA+ Ticket</td>
+                    <td>
+                        <select id="quantity" onchange="calculateTotal()" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </td>
+                    <td id="subtotal">$387.50</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Tax:</td>
+                    <td id="tax">$32.30</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Total:</td>
+                    <td id="total">$419.80</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pay-now">
+            <a href="prank.html" class="btn btn-primary btn-lg">Pay Now</a>
+        </div>
+    </div>
+</body>
+</html>
